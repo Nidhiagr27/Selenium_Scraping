@@ -28,9 +28,16 @@ public class Main {
         WebDriverWait w = new WebDriverWait(driver,Duration.ofSeconds(5));
         w.until(ExpectedConditions.presenceOfElementLocated(By.className("gNO89b")));
         element.submit();
-        List<WebElement> list= driver.findElements(By.linkText("selenium"));
-        Iterator<WebElement> it= list.iterator();
-        System.out.println(it.next());
+        List<WebElement> listTitle= driver.findElements(By.cssSelector(".LC20lb.MBeuO.DKV0Md"));
+//      Iterator<WebElement> it= list.iterator();
+        for(WebElement e:listTitle){
+            System.out.println(e.getText());
+        }
+        List<WebElement> listUrl= driver.findElements(By.className("yuRUbf"));
+        for(WebElement ef:listUrl){
+            System.out.println("url "+ef.findElement(By.tagName("a")).getAttribute("href"));
+        }
+
         driver.close();
 
         // Launching website
